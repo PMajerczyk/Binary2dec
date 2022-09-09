@@ -3,56 +3,54 @@
 
 int main()
 {
-	std::cout << "Dzien dobry\n";
-	std::string liczba1;
-	std::string wybor;
-	bool dzia³a1 = false;
-	bool dzia³a = true;
-	int wynik;
-	wynik = 0;
-	int dlugosc;
-	int i;
-	i = 0;
+	std::cout << "Hello\n";
+	std::string number;
+	std::string choice;
+	bool run = false;
+	bool work = true;
+	int result = 0;
+	int size;
+	int i = 0;
 
-	while (dzia³a == true)
+	while (work == true)
 	{
-		std::cout << "Wpisz liczbe binarna\n";
-		std::cin >> liczba1;
-		dlugosc = liczba1.length();
+		std::cout << "Enter a binary number\n";
+		std::cin >> number;
+		size = number.length();
 		do
 		{
-			wynik += (liczba1[dlugosc - 1] - 48) * pow(2, i);
-			i++;
-			dlugosc--;
-		} while (dlugosc > 0);
-		std::cout << "Wprowadzona liczba wynosi:\t" << wynik << "\n";
+			result += (number[size - 1] - 48) * pow(2, i);
+			++i;
+			--size;
+		} while (size > 0);
+		std::cout << "The number is:\t" << result << "\n";
 	    i = 0;
-		wynik = 0;
-		dlugosc = 0;
+		result = 0;
+		size = 0;
 
 		do
 		{
-			std::cout << "kontynuowac ?\n";
-			std::cin >> wybor;
+			std::cout << "Continue ?\n";
+			std::cin >> choice;
 
-			if (wybor == "tak")
+			if (choice == "Yes")
 			{
-				dzia³a = true;
-				dzia³a1 = true;
+				work = true;
+				run = true;
 			}
-			else if (wybor == "nie")
+			else if (choice == "No")
 			{
-				dzia³a = false;
-				dzia³a1 = true;
-				std::cout << "Dziekuje, milego dnia :)\n";
+				work = false;
+				run = true;
+				std::cout << "Thank you :)\n";
 			}
 			else
 			{
-				std::cout << "Zly wpis\n";
-				dzia³a1 = false;
+				std::cout << "Incorrect entry\n";
+				run = false;
 			}
 		} 
-		while (dzia³a1 == false);	
+		while (run == false);	
 	}
 	system("pause");
 }
